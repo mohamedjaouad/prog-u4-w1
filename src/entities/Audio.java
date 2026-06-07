@@ -4,7 +4,7 @@ import interfaces.Play;
 
 public class Audio extends Media implements Play {
 
-    private int duration;
+    private final int duration;
     private int volume;
 
     public Audio(String title, int duration, int volume) {
@@ -12,6 +12,17 @@ public class Audio extends Media implements Play {
         this.duration = duration;
         this.volume = volume;
     }
+
+    public void increaseVolume() {
+        volume++;
+    }
+
+    public void decreaseVolume() {
+        if (volume > 0) {
+            volume--;
+        }
+    }
+
 
     @Override
     public void play() {
@@ -22,4 +33,9 @@ public class Audio extends Media implements Play {
                     "!".repeat(volume));
         }
     }
+    @Override
+    public void avvia() {
+        play();
+    }
+
 }

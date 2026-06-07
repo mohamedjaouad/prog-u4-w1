@@ -5,7 +5,7 @@ import interfaces.Play;
 public class Video extends Media implements Play {
 
     private int brightness;
-    private int duration;
+    private final int duration;
     private int volume;
 
     public Video(String title, int brightness, int duration, int volume) {
@@ -13,6 +13,26 @@ public class Video extends Media implements Play {
         this.brightness = brightness;
         this.duration = duration;
         this.volume = volume;
+    }
+
+    public void increaseVolume() {
+        volume++;
+    }
+
+    public void decreaseVolume() {
+        if (volume > 0) {
+            volume--;
+        }
+    }
+
+    public void increaseBrightness() {
+        brightness++;
+    }
+
+    public void decreaseBrightness() {
+        if (brightness > 0) {
+            brightness--;
+        }
     }
 
     @Override
@@ -24,4 +44,9 @@ public class Video extends Media implements Play {
                     " | Brightness (" + brightness + "): " + "*".repeat(brightness));
         }
     }
+    @Override
+    public void avvia() {
+        play();
+    }
+
 }

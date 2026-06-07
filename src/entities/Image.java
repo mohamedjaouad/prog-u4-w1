@@ -9,10 +9,26 @@ public class Image extends Media {
         this.brightness = brightness;
     }
 
+    public void increaseBrightness() {
+        brightness++;
+    }
+
+    public void decreaseBrightness() {
+        if (brightness > 0) {
+            brightness--;
+        }
+    }
+
+
     public void show() {
         System.out.println("IMAGE");
         System.out.println("Title: " + title +
                 " | Brightness (" + brightness + "): " +
                 "*".repeat(brightness));
     }
+    @Override
+    public void avvia() {
+        show();
+    }
+
 }
